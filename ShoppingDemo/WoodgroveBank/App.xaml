@@ -1,0 +1,11 @@
+﻿<Application
+    x:Class="WoodgroveBank.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WoodgroveBank">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="AppBackground" Color="#000033"></SolidColorBrush>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
