@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+         IgnorableNamespaces="uap mp">
+
+  <Identity Name="b03f3e1d-7ee3-42b4-a7fc-c5bda68fc54b"
+            Publisher="CN=arsingh"
+            Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="b03f3e1d-7ee3-42b4-a7fc-c5bda68fc54b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>ContosoShop</DisplayName>
+    <PublisherDisplayName>arsingh</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetPlatform Name="Windows.Universal"
+                    MinVersion="10.0.0.0"
+                    MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+  
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+        Executable="$targetnametoken$.exe"
+        EntryPoint="ContosoShop.App">
+        <uap:VisualElements
+            DisplayName="ContosoShop"
+            Square150x150Logo="Assets\Logo.png"
+            Square44x44Logo="Assets\SmallLogo.png"
+            Description="ContosoShop"
+            ForegroundText="light"
+            BackgroundColor="transparent">
+            <uap:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square71x71Logo="Assets\Square71x71Logo.png"/>
+            <uap:SplashScreen Image="Assets\SplashScreen.png"/>
+        </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClientServer" />
+  </Capabilities>
+</Package>
