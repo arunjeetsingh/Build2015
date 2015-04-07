@@ -22,7 +22,7 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Text="roomba"/>
+                        <TextBox Text="Windows Devices"/>
                         <Button Grid.Column="1" Content="Search" Background="Black" Foreground="White" />
                     </Grid>
                     <Border BorderThickness="2" BorderBrush="DarkGray" Margin="0,20,0,0">
@@ -31,10 +31,10 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="Assets/Roombas/roomba560.jpg" Height="200" />
+                            <Image Source="Assets/Products/4KMonitor.jpg" Height="200" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="iRobot Roomba 560 [$239.95]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyRoomba560" Content="Buy" Click="BuyRoomba560_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="4K Monitor [574.95]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyMonitor" Content="Buy" Click="BuyMonitor_Click" Background="Black" Foreground="White" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -45,10 +45,10 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="Assets/Roombas/roomba880.jpg" Height="200" />
+                            <Image Source="Assets/Products/laptop.jpg" Height="200" />
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="iRobot Roomba 880 [$580.00]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyRoomba880" Content="Buy" Click="BuyRoomba880_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="Laptop [$999.00]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyLaptop" Content="Buy" Click="BuyLaptop_Click" Background="Black" Foreground="White" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -59,10 +59,10 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="Assets/Roombas/roomba530.jpg" Height="200" />
+                            <Image Source="Assets/Products/phone.jpg" Height="200" />
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="iRobot Roomba 530 [$47.46]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyRoomba530" Content="Buy" Click="BuyRoomba530_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="Windows Phone [199.00]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyPhone" Content="Buy" Click="BuyPhone_Click" Background="Black" Foreground="White" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -73,10 +73,10 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Image Source="Assets/Roombas/roomba650.jpg" Height="200" />
+                            <Image Source="Assets/Products/tablet.jpg" Height="200" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="iRobot Roomba 650 [$359.10]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyRoomba650" Content="Buy" Click="BuyRoomba650_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="Tablet [499.95]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyTablet" Content="Buy" Click="BuyTablet_Click" Background="Black" Foreground="White" />
                             </StackPanel>
                         </Grid>
                     </Border>
