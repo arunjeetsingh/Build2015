@@ -81,7 +81,7 @@ namespace ContosoShop
 			inputData["Amount"] = price;
 			inputData["Currency"] = "USD";
 
-            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\Products");
+            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
             StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
             inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 

@@ -116,6 +116,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-240.png" />
+    <Content Include="Assets\ProductImages\4KMonitor.jpg" />
+    <Content Include="Assets\ProductImages\laptop.jpg" />
+    <Content Include="Assets\ProductImages\phone.jpg" />
+    <Content Include="Assets\ProductImages\tablet.jpg" />
     <Content Include="Assets\Products\4KMonitor.jpg" />
     <Content Include="Assets\Products\phone.jpg" />
     <Content Include="Assets\Products\tablet.jpg" />
