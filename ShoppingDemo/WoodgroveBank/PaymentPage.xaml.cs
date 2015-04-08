@@ -49,25 +49,15 @@ namespace WoodgroveBank
 			this.Item.Text = productName;
             this.Amount.Text = "$" + protocolForResultsArgs.Data["Amount"] as string;
 
-			if (protocolForResultsArgs.Data.ContainsKey("ImageFileToken"))
-			{
-				string imageFileToken = protocolForResultsArgs.Data["ImageFileToken"] as string;
-
-				StorageFile imageFile = await SharedStorageAccessManager.RedeemTokenForFileAsync(imageFileToken);
-				BitmapImage bitmap = new BitmapImage();
-				bitmap.SetSource(await imageFile.OpenReadAsync());
-				ProductImage.Source = bitmap;
-				ProductImage.Height = 200;
-			}
-
-            //Write transaction details into the empty file the caller passed in
-            string transactionDetailsToken = protocolForResultsArgs.Data["TransactionDetailsToken"] as string;
-            StorageFile transactionDetailsFile = await SharedStorageAccessManager.RedeemTokenForFileAsync(transactionDetailsToken);
-            using (Stream outputStream = await transactionDetailsFile.OpenStreamForWriteAsync())
+            if (protocolForResultsArgs.Data.ContainsKey("ImageFileToken"))
             {
-                byte[] buffer = Encoding.Unicode.GetBytes("!!Woodgrove bank transaction details!!");
-                await outputStream.WriteAsync(buffer, 0, buffer.Length);
-                outputStream.Flush();
+                string imageFileToken = protocolForResultsArgs.Data["ImageFileToken"] as string;
+
+                StorageFile imageFile = await SharedStorageAccessManager.RedeemTokenForFileAsync(imageFileToken);
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.SetSource(await imageFile.OpenReadAsync());
+                ProductImage.Source = bitmap;
+                ProductImage.Height = 200;
             }
         }
 

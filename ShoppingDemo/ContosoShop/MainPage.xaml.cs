@@ -81,25 +81,11 @@ namespace ContosoShop
 			inputData["Amount"] = price;
 			inputData["Currency"] = "USD";
 
-			StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\Products");
+            StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
+            inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 
-			StorageFile imgFile = await assetsFolder.GetFileAsync("irobot.png");
-
-			inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
-
-			//Get rid of the temporary file
-			StorageFile transactionDetailsFile = ((await ApplicationData.Current.TemporaryFolder.TryGetItemAsync("transactiondetails.txt")) as StorageFile);
-			if (transactionDetailsFile != null)
-			{
-				await transactionDetailsFile.DeleteAsync();
-			}
-
-			//We're sending the payment app an empty file that it can fill with transaction details
-			transactionDetailsFile =
-                await ApplicationData.Current.TemporaryFolder.CreateFileAsync("transactiondetails.txt", CreationCollisionOption.FailIfExists);
-            inputData["TransactionDetailsToken"] = SharedStorageAccessManager.AddFile(transactionDetailsFile);
-
-			LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);	// .LaunchUriForResultsAndContinueAsync(woodgroveUri, options, continuationData, inputData);
+            LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
 			if (result.Status == LaunchUriStatus.Success &&
 				result.Result["Status"] != null &&
 				(result.Result["Status"] as string) == "Success")

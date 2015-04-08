@@ -41,23 +41,7 @@ namespace ContosoShop
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var paymentResult = e.Parameter as ValueSet;
-            OrderPlacedMessage.Text = string.Format("Congratulations! You just purchased {0}", paymentResult["ProductName"] as string);
-
-            using (Stream inputStream =
-                await ApplicationData.Current.TemporaryFolder.OpenStreamForReadAsync("transactiondetails.txt"))
-            {
-                byte[] buffer = new byte[inputStream.Length];
-                await inputStream.ReadAsync(buffer, 0, buffer.Length);
-                string transactionDetailsText = Encoding.Unicode.GetString(buffer, 0, buffer.Length);
-                TransactionDetails.Text = transactionDetailsText;
-            }
-
-			//Now get rid of the file
-			StorageFile transactionDetailsFile = ((await ApplicationData.Current.TemporaryFolder.TryGetItemAsync("transactiondetails.txt")) as StorageFile);
-            if (transactionDetailsFile != null)
-			{
-				await transactionDetailsFile.DeleteAsync();
-			}
+            OrderPlacedMessage.Text = string.Format("Congratulations! You just purchased {0}", paymentResult["ProductName"] as string);            
 
             //Save this order
             OrderDetails order = new OrderDetails();

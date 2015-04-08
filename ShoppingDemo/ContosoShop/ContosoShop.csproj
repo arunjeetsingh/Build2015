@@ -115,7 +115,6 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\irobot.png" />
     <Content Include="Assets\Logo.scale-240.png" />
     <Content Include="Assets\Products\4KMonitor.jpg" />
     <Content Include="Assets\Products\phone.jpg" />
