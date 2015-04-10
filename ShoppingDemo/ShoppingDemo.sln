@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoShop", "ContosoShop\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WoodgroveBank", "WoodgroveBank\WoodgroveBank.csproj", "{79E44ABF-F7CE-44FE-89C5-28B6F98B3348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipTrack", "ShipTrack\ShipTrack.csproj", "{043A66D5-3A1A-404B-B8FD-F531A16AE568}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabrikamShipTrack", "ShipTrack\FabrikamShipTrack.csproj", "{043A66D5-3A1A-404B-B8FD-F531A16AE568}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipTrackService", "ShipTrackService\ShipTrackService.csproj", "{55828782-CDD6-4C4D-B415-A8E820E72476}"
 EndProject

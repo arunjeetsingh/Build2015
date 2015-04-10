@@ -41,33 +41,21 @@ namespace ContosoShop
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             var paymentResult = e.Parameter as ValueSet;
-            OrderPlacedMessage.Text = string.Format("Congratulations! You just purchased {0}", paymentResult["ProductName"] as string);
-
-            using (Stream inputStream =
-                await ApplicationData.Current.TemporaryFolder.OpenStreamForReadAsync("transactiondetails.txt"))
-            {
-                byte[] buffer = new byte[inputStream.Length];
-                await inputStream.ReadAsync(buffer, 0, buffer.Length);
-                string transactionDetailsText = Encoding.Unicode.GetString(buffer, 0, buffer.Length);
-                TransactionDetails.Text = transactionDetailsText;
-            }
-
-			//Now get rid of the file
-			StorageFile transactionDetailsFile = ((await ApplicationData.Current.TemporaryFolder.TryGetItemAsync("transactiondetails.txt")) as StorageFile);
-            if (transactionDetailsFile != null)
-			{
-				await transactionDetailsFile.DeleteAsync();
-			}
+            OrderPlacedMessage.Text = string.Format("Congratulations! You just purchased {0}", paymentResult["ProductName"] as string);            
 
             //Save this order
             OrderDetails order = new OrderDetails();
             order.ItemName = paymentResult["ProductName"] as string;
+
             order.OrderPlacedTime = DateTime.UtcNow;
-            Random r = new Random();
-            order.OrderId = r.Next(DateTime.UtcNow.Millisecond).ToString();
+
+            order.OrderID = GenerateOrderId();
+
+            order.TrackingNumber = GenerateTrackingNumber();
 
             await this.SaveOrder(order);
         }
+       
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -86,6 +74,20 @@ namespace ContosoShop
                 serializer.WriteObject(outStream.AsStreamForWrite(), details);
                 await outStream.FlushAsync();
             }
+        }
+
+        //Generate a fake tracking number
+        private string GenerateTrackingNumber()
+        {            
+            Random r = new Random();
+            return "1ZE1F022020745" + r.Next(DateTime.UtcNow.Millisecond).ToString();
+        }
+
+        // Generate a fake order id
+        private string GenerateOrderId()
+        {
+            Random r = new Random();
+            return "002-5368307-" + r.Next(DateTime.UtcNow.Millisecond).ToString();
         }
 
     }

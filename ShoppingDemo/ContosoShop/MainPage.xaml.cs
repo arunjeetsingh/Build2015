@@ -49,24 +49,24 @@ namespace ContosoShop
             // this event is handled for you.
         }
 
-        private void BuyRoomba560_Click(object sender, RoutedEventArgs e)
+        private void BuyMonitor_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 560", "239.95", "roomba560.jpg");
+            Buy("4K monitor", "574.95", "4KMonitor.jpg");
         }        
 
-        private void BuyRoomba880_Click(object sender, RoutedEventArgs e)
+        private void BuyLaptop_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 880", "580.00", "roomba880.jpg");
+            Buy("Laptop", "999.00", "laptop.jpg");
         }
 
-        private void BuyRoomba530_Click(object sender, RoutedEventArgs e)
+        private void BuyPhone_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 530", "47.46", "roomba530.jpg");
+            Buy("Windows Phone", "199.00", "phone.jpg");
         }
 
-        private void BuyRoomba650_Click(object sender, RoutedEventArgs e)
+        private void BuyTablet_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 650", "359.10", "roomba650.jpg");
+            Buy("Tablet", "499.95", "tablet.jpg");
         }
 
         private async void Buy(string productName, string price, string filename)
@@ -81,25 +81,11 @@ namespace ContosoShop
 			inputData["Amount"] = price;
 			inputData["Currency"] = "USD";
 
-			StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");
+            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
+            StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
+            inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 
-			StorageFile imgFile = await assetsFolder.GetFileAsync("irobot.png");
-
-			inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
-
-			//Get rid of the temporary file
-			StorageFile transactionDetailsFile = ((await ApplicationData.Current.TemporaryFolder.TryGetItemAsync("transactiondetails.txt")) as StorageFile);
-			if (transactionDetailsFile != null)
-			{
-				await transactionDetailsFile.DeleteAsync();
-			}
-
-			//We're sending the payment app an empty file that it can fill with transaction details
-			transactionDetailsFile =
-                await ApplicationData.Current.TemporaryFolder.CreateFileAsync("transactiondetails.txt", CreationCollisionOption.FailIfExists);
-            inputData["TransactionDetailsToken"] = SharedStorageAccessManager.AddFile(transactionDetailsFile);
-
-			LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);	// .LaunchUriForResultsAndContinueAsync(woodgroveUri, options, continuationData, inputData);
+            LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
 			if (result.Status == LaunchUriStatus.Success &&
 				result.Result["Status"] != null &&
 				(result.Result["Status"] as string) == "Success")
