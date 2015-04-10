@@ -46,12 +46,16 @@ namespace ContosoShop
             //Save this order
             OrderDetails order = new OrderDetails();
             order.ItemName = paymentResult["ProductName"] as string;
+
             order.OrderPlacedTime = DateTime.UtcNow;
-            Random r = new Random();
-            order.OrderId = r.Next(DateTime.UtcNow.Millisecond).ToString();
+
+            order.OrderID = GenerateOrderId();
+
+            order.TrackingNumber = GenerateTrackingNumber();
 
             await this.SaveOrder(order);
         }
+       
 
         private void Home_Click(object sender, RoutedEventArgs e)
         {
@@ -70,6 +74,20 @@ namespace ContosoShop
                 serializer.WriteObject(outStream.AsStreamForWrite(), details);
                 await outStream.FlushAsync();
             }
+        }
+
+        //Generate a fake tracking number
+        private string GenerateTrackingNumber()
+        {            
+            Random r = new Random();
+            return "1ZE1F022020745" + r.Next(DateTime.UtcNow.Millisecond).ToString();
+        }
+
+        // Generate a fake order id
+        private string GenerateOrderId()
+        {
+            Random r = new Random();
+            return "002-5368307-" + r.Next(DateTime.UtcNow.Millisecond).ToString();
         }
 
     }
