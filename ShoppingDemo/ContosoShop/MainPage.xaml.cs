@@ -52,7 +52,7 @@ namespace ContosoShop
         private void BuyMonitor_Click(object sender, RoutedEventArgs e)
         {
             Buy("4K monitor", "574.95", "4KMonitor.jpg");
-        }        
+        }
 
         private void BuyLaptop_Click(object sender, RoutedEventArgs e)
         {
@@ -71,32 +71,35 @@ namespace ContosoShop
 
         private async void Buy(string productName, string price, string filename)
         {
+
             var woodgroveUri = new Uri("woodgrove-pay:");
 
-			var options = new LauncherOptions();
+            var options = new LauncherOptions();
             options.TargetApplicationPackageFamilyName = "111055f1-4e28-4634-b304-e76934e91e53_876gvmnfevegr";
 
-			var inputData = new ValueSet();
-			inputData["ProductName"] = productName;
-			inputData["Amount"] = price;
-			inputData["Currency"] = "USD";
+            var inputData = new ValueSet();
+            inputData["ProductName"] = productName;
+            inputData["Amount"] = price;
+
 
             StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
             StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
             inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 
+
             LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
-			if (result.Status == LaunchUriStatus.Success &&
-				result.Result["Status"] != null &&
-				(result.Result["Status"] as string) == "Success")
-			{
-				this.Frame.Navigate(typeof(OrderPlacedPage), result.Result);
-			}
+            if (result.Status == LaunchUriStatus.Success &&
+                result.Result["Status"] != null &&
+                (result.Result["Status"] as string) == "Success")
+            {
+                this.Frame.Navigate(typeof(OrderPlacedPage), result.Result);
+            }
+           
         }
 
         private void OrderHistory_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(OrderHistoryPage));
-        }        
+        }
     }
 }
