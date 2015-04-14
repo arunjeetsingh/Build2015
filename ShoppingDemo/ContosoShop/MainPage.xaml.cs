@@ -49,68 +49,57 @@ namespace ContosoShop
             // this event is handled for you.
         }
 
-        private void BuyRoomba560_Click(object sender, RoutedEventArgs e)
+        private void BuyMonitor_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 560", "239.95", "roomba560.jpg");
-        }        
-
-        private void BuyRoomba880_Click(object sender, RoutedEventArgs e)
-        {
-            Buy("iRobot Roomba 880", "580.00", "roomba880.jpg");
+            Buy("4K monitor", "574.95", "4KMonitor.jpg");
         }
 
-        private void BuyRoomba530_Click(object sender, RoutedEventArgs e)
+        private void BuyLaptop_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 530", "47.46", "roomba530.jpg");
+            Buy("Laptop", "999.00", "laptop.jpg");
         }
 
-        private void BuyRoomba650_Click(object sender, RoutedEventArgs e)
+        private void BuyPhone_Click(object sender, RoutedEventArgs e)
         {
-            Buy("iRobot Roomba 650", "359.10", "roomba650.jpg");
+            Buy("Windows Phone", "199.00", "phone.jpg");
+        }
+
+        private void BuyTablet_Click(object sender, RoutedEventArgs e)
+        {
+            Buy("Tablet", "499.95", "tablet.jpg");
         }
 
         private async void Buy(string productName, string price, string filename)
         {
+
             var woodgroveUri = new Uri("woodgrove-pay:");
 
-			var options = new LauncherOptions();
+            var options = new LauncherOptions();
             options.TargetApplicationPackageFamilyName = "111055f1-4e28-4634-b304-e76934e91e53_876gvmnfevegr";
 
-			var inputData = new ValueSet();
-			inputData["ProductName"] = productName;
-			inputData["Amount"] = price;
-			inputData["Currency"] = "USD";
+            var inputData = new ValueSet();
+            inputData["ProductName"] = productName;
+            inputData["Amount"] = price;
 
-			StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets");
 
-			StorageFile imgFile = await assetsFolder.GetFileAsync("irobot.png");
+            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
+            StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
+            inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 
-			inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
 
-			//Get rid of the temporary file
-			StorageFile transactionDetailsFile = ((await ApplicationData.Current.TemporaryFolder.TryGetItemAsync("transactiondetails.txt")) as StorageFile);
-			if (transactionDetailsFile != null)
-			{
-				await transactionDetailsFile.DeleteAsync();
-			}
-
-			//We're sending the payment app an empty file that it can fill with transaction details
-			transactionDetailsFile =
-                await ApplicationData.Current.TemporaryFolder.CreateFileAsync("transactiondetails.txt", CreationCollisionOption.FailIfExists);
-            inputData["TransactionDetailsToken"] = SharedStorageAccessManager.AddFile(transactionDetailsFile);
-
-			LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);	// .LaunchUriForResultsAndContinueAsync(woodgroveUri, options, continuationData, inputData);
-			if (result.Status == LaunchUriStatus.Success &&
-				result.Result["Status"] != null &&
-				(result.Result["Status"] as string) == "Success")
-			{
-				this.Frame.Navigate(typeof(OrderPlacedPage), result.Result);
-			}
+            LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
+            if (result.Status == LaunchUriStatus.Success &&
+                result.Result["Status"] != null &&
+                (result.Result["Status"] as string) == "Success")
+            {
+                this.Frame.Navigate(typeof(OrderPlacedPage), result.Result);
+            }
+           
         }
 
         private void OrderHistory_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(OrderHistoryPage));
-        }        
+        }
     }
 }

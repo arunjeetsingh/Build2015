@@ -20,8 +20,7 @@
             <StackPanel Grid.Row="1">
                 <TextBlock x:Name="OrderPlacedMessage" FontSize="20" TextWrapping="Wrap" Text="Congratulations! You just purchased [Item Name]" Margin="0,50,0,0" Foreground="Black"/>
             </StackPanel>
-            <Button x:Name="Home" Grid.Row="2" Content="Home" HorizontalAlignment="Center" Margin="0,20,0,0" Click="Home_Click" Background="Black" Foreground="White" />
-            <TextBlock x:Name="TransactionDetails" Text="[Transaction Details]" Grid.Row="3" FontSize="20" Margin="0,20,0,0" Foreground="Black" />
+            <Button x:Name="Home" Grid.Row="2" Content="Home" HorizontalAlignment="Center" Margin="0,20,0,0" Click="Home_Click" Background="Black" Foreground="White" />            
         </Grid>
     </Grid>
 </Page>

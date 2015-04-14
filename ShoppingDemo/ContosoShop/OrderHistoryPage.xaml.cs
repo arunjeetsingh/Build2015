@@ -54,13 +54,13 @@ namespace ContosoShop
             inStream.Dispose();
 
             //Invoke service to fetch shipping details
-            await GetShippingStatus(details.OrderId);
+            await GetShippingStatus(details.TrackingNumber);
 
-            TransactionDetails.Text = String.Format("Order ID: {0}\n{1}\nOrder Placed On {2}\nStatus {3}", 
-                details.OrderId, details.ItemName, details.OrderPlacedTime, status);
+            TransactionDetails.Text = String.Format("Order ID: {0}\n{1}\nOrder Placed On: {2}\nStatus: {3}\nTracking No: {4}", 
+                details.OrderID, details.ItemName, details.OrderPlacedTime, status, details.TrackingNumber);
         }
 
-        private async Task GetShippingStatus(string OrderId)
+        private async Task GetShippingStatus(string TrackingNumber)
         {
             if (serviceConnection == null)
             {
@@ -71,17 +71,17 @@ namespace ContosoShop
 
                 var status = await serviceConnection.OpenAsync();
 
+                // handle the cases where the appservice connection fails
+                // eg: AppNotInstalled/ AppUnavailable/ AppServiceUnavailable/ Unknown
                 if (status != AppServiceConnectionStatus.Success)
                 {
                     Debug.WriteLine("Failed to open connection: " + status.ToString());
                     return;
-                }
-
-                Debug.WriteLine("Connection open!");
+                }               
             }
 
             var message = new ValueSet();
-            message.Add("PackageID", OrderId);
+            message.Add("TrackingNumber", TrackingNumber);
 
             Debug.WriteLine("Sending a message");
             AppServiceResponse response = await serviceConnection.SendMessageAsync(message);

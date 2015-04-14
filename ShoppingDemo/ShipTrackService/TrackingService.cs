@@ -43,30 +43,24 @@ namespace ShipTrackService
 
             var messageRequest = args.Request.Message;
 
+            string trackingNumber = messageRequest["TrackingNumber"] as string;
+                        
+            string status = FetchTrackingStatus(trackingNumber);
+
             //Create the response
             var result = new ValueSet();
-            string orderId = "default";
-
-            if (messageRequest.Keys.Count() > 0)
-            {
-                string key = messageRequest.Keys.First();
-                orderId = messageRequest[key] as string;                
-            }
-
-            if (orderId.Equals("12345"))
-            {
-                result.Add("Status", "Processing Order");
-            }
-            else
-            {
-                result.Add("Status", "Not found");
-            }
+            result.Add("Status", status);
 
             //Send the response
             await args.Request.SendResponseAsync(result);
 
             //Complete the message deferral so the platform knows we're done responding
             messageDeferral.Complete();
+        }
+
+        private string FetchTrackingStatus(string trackingNumber)
+        {
+            return "Processing Order";
         }
     }
 }

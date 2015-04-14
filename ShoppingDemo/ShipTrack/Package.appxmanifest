@@ -14,7 +14,7 @@
   <mp:PhoneIdentity PhoneProductId="21492134-53b0-490a-9e74-c0316e413a61" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>ShipTrack</DisplayName>
+    <DisplayName>FabrikamShipTrack</DisplayName>
     <PublisherDisplayName>sandepm</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -32,10 +32,10 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="ShipTrack.App">
       <uap:VisualElements
-        DisplayName="ShipTrack"
+        DisplayName="FabrikamShipTrack"
         Square150x150Logo="Assets\Logo.png"
         Square44x44Logo="Assets\SmallLogo.png"
-        Description="ShipTrack"
+        Description="FabrikamShipTrack"
         ForegroundText="light"
         BackgroundColor="#464646">
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
