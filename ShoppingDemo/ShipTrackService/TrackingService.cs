@@ -43,15 +43,9 @@ namespace ShipTrackService
 
             var messageRequest = args.Request.Message;
 
-            string orderId = "default";
-
-            if (messageRequest.Keys.Count() > 0)
-            {
-                string key = messageRequest.Keys.First();
-                orderId = messageRequest[key] as string;                
-            }
-
-            string status = FetchTrackingStatus(orderId);
+            string trackingNumber = messageRequest["TrackingNumber"] as string;
+                        
+            string status = FetchTrackingStatus(trackingNumber);
 
             //Create the response
             var result = new ValueSet();
@@ -64,7 +58,7 @@ namespace ShipTrackService
             messageDeferral.Complete();
         }
 
-        private string FetchTrackingStatus(string orderId)
+        private string FetchTrackingStatus(string trackingNumber)
         {
             return "Processing Order";
         }

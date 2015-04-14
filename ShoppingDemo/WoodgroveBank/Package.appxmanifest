@@ -36,7 +36,7 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="woodgrove-pay" ReturnResults="optional">
+          <uap:Protocol Name="woodgrove-pay" ReturnResults="always">
             <uap:DisplayName>Woodgrove Pay</uap:DisplayName>
           </uap:Protocol>
         </uap:Extension>
