@@ -11,8 +11,8 @@
     <AssemblyName>ShipTrack</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10030.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.10030.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.10058.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10058.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
