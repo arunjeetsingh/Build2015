@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>App Service open connection</Title>
+      <Author></Author>
+      <Description>Code snippet app service open connection</Description>
+      <HelpUrl></HelpUrl>
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>openc</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="method body" Delimiter="$"><![CDATA[if (serviceConnection == null)
+{
+    serviceConnection = new AppServiceConnection();
+    serviceConnection.AppServiceName = "TrackingServiceEndpoint";
+    // Package family name of the shipping app
+    serviceConnection.PackageFamilyName = "21492134-53b0-490a-9e74-c0316e413a61_22pq88dgcvw56";
+    
+    var status = await serviceConnection.OpenAsync();
+    // handle the cases where the appservice connection fails
+    // eg: AppNotInstalled/ AppUnavailable/ AppServiceUnavailable/ Unknown
+    if (status != AppServiceConnectionStatus.Success)
+    {
+        Debug.WriteLine("Failed to open connection: " + status.ToString());
+        return;
+    }               
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

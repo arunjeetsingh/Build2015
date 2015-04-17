@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Send message to app service</Title>
+      <Author />
+      <Description>Send message to app service</Description>
+      <HelpUrl />
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>sendm</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[var message = new ValueSet();
+message.Add("TrackingNumber", TrackingNumber);
+            
+AppServiceResponse response = await serviceConnection.SendMessageAsync(message);
+            
+if (response.Status == AppServiceResponseStatus.Success)
+{
+    this.status = response.Message["Status"] as string;                
+}
+else
+{
+    Debug.WriteLine("Message send failed!");
+}]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

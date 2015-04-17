@@ -11,6 +11,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabrikamShipTrack", "ShipTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipTrackService", "ShipTrackService\ShipTrackService.csproj", "{55828782-CDD6-4C4D-B415-A8E820E72476}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demosnippets", "demosnippets", "{0F900E40-8769-409C-AB68-F03F7FDAAFAC}"
+	ProjectSection(SolutionItems) = preProject
+		demosnippets\appsvcopenconnection.snippet = demosnippets\appsvcopenconnection.snippet
+		demosnippets\appsvcsendmessage.snippet = demosnippets\appsvcsendmessage.snippet
+		demosnippets\launchriresults.snippet = demosnippets\launchriresults.snippet
+		demosnippets\sharedstorageaccessmanager.snippet = demosnippets\sharedstorageaccessmanager.snippet
+		demosnippets\woodgroveuri.snippet = demosnippets\woodgroveuri.snippet
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Shared Storage Access Manager</Title>
+      <Author />
+      <Description>Create SharedStorageAccessManager token and add to value set</Description>
+      <HelpUrl />
+      <SnippetTypes />
+      <Keywords />
+      <Shortcut>shareds</Shortcut>
+    </Header>
+    <Snippet>
+      <References />
+      <Imports />
+      <Declarations />
+      <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
+StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
+inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
