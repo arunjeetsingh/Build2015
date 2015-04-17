@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demosnippets", "demosnippet
 		demosnippets\forresults_launchr.snippet = demosnippets\forresults_launchr.snippet
 		demosnippets\forresults_shareds.snippet = demosnippets\forresults_shareds.snippet
 		demosnippets\forresults_urir.snippet = demosnippets\forresults_urir.snippet
+		demosnippets\tumbleme_pfn.snippet = demosnippets\tumbleme_pfn.snippet
 	EndProjectSection
 EndProject
 Global
