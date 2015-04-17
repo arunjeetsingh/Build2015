@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22609.0
+VisualStudioVersion = 14.0.22815.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoShop", "ContosoShop\ContosoShop.csproj", "{16B8BABA-4C7E-4F1F-BDC7-9589519A669E}"
 EndProject
@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipTrackService", "ShipTra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demosnippets", "demosnippets", "{0F900E40-8769-409C-AB68-F03F7FDAAFAC}"
 	ProjectSection(SolutionItems) = preProject
-		demosnippets\appsvcopenconnection.snippet = demosnippets\appsvcopenconnection.snippet
-		demosnippets\appsvcsendmessage.snippet = demosnippets\appsvcsendmessage.snippet
-		demosnippets\launchriresults.snippet = demosnippets\launchriresults.snippet
-		demosnippets\sharedstorageaccessmanager.snippet = demosnippets\sharedstorageaccessmanager.snippet
-		demosnippets\woodgroveuri.snippet = demosnippets\woodgroveuri.snippet
+		demosnippets\appservice_openc.snippet = demosnippets\appservice_openc.snippet
+		demosnippets\appservice_sendm.snippet = demosnippets\appservice_sendm.snippet
+		demosnippets\forresults_launchr.snippet = demosnippets\forresults_launchr.snippet
+		demosnippets\forresults_shareds.snippet = demosnippets\forresults_shareds.snippet
+		demosnippets\forresults_urir.snippet = demosnippets\forresults_urir.snippet
 	EndProjectSection
 EndProject
 Global
