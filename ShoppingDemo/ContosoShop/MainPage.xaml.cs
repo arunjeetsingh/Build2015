@@ -71,30 +71,11 @@ namespace ContosoShop
 
         private async void Buy(string productName, string price, string filename)
         {
+            //urir
 
-            var woodgroveUri = new Uri("woodgrove-pay:");
+            //shareds
 
-            var options = new LauncherOptions();
-            options.TargetApplicationPackageFamilyName = "111055f1-4e28-4634-b304-e76934e91e53_876gvmnfevegr";
-
-            var inputData = new ValueSet();
-            inputData["ProductName"] = productName;
-            inputData["Amount"] = price;
-
-
-            StorageFolder assetsFolder = await Package.Current.InstalledLocation.GetFolderAsync("Assets\\ProductImages");
-            StorageFile imgFile = await assetsFolder.GetFileAsync(filename);
-            inputData["ImageFileToken"] = SharedStorageAccessManager.AddFile(imgFile);
-
-
-            LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
-            if (result.Status == LaunchUriStatus.Success &&
-                result.Result["Status"] != null &&
-                (result.Result["Status"] as string) == "Success")
-            {
-                this.Frame.Navigate(typeof(OrderPlacedPage), result.Result);
-            }
-           
+            //launchr
         }
 
         private void OrderHistory_Click(object sender, RoutedEventArgs e)

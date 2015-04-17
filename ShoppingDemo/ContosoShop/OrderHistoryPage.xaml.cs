@@ -62,43 +62,9 @@ namespace ContosoShop
 
         private async Task GetShippingStatus(string TrackingNumber)
         {
-            if (serviceConnection == null)
-            {
-                serviceConnection = new AppServiceConnection();
-                serviceConnection.AppServiceName = "TrackingServiceEndpoint";
-                // Package family name of the shipping app
-                serviceConnection.PackageFamilyName = "21492134-53b0-490a-9e74-c0316e413a61_22pq88dgcvw56";
+            //openc
 
-                var status = await serviceConnection.OpenAsync();
-
-                // handle the cases where the appservice connection fails
-                // eg: AppNotInstalled/ AppUnavailable/ AppServiceUnavailable/ Unknown
-                if (status != AppServiceConnectionStatus.Success)
-                {
-                    Debug.WriteLine("Failed to open connection: " + status.ToString());
-                    return;
-                }               
-            }
-
-            var message = new ValueSet();
-            message.Add("TrackingNumber", TrackingNumber);
-
-            Debug.WriteLine("Sending a message");
-            AppServiceResponse response = await serviceConnection.SendMessageAsync(message);
-            Debug.WriteLine("Message sent. Response received (" + response.Status + ")");
-
-            if (response.Status == AppServiceResponseStatus.Success)
-            {
-                if (response.Message.Keys.Count() > 0)
-                {
-                    string key = response.Message.Keys.First();                    
-                    this.status = response.Message[key] as string;
-                }
-            }
-            else
-            {
-                Debug.WriteLine("Message send failed!");
-            }
+            //sendm
         }
        
 
