@@ -16,6 +16,7 @@
       <Declarations />
       <Code Language="csharp" Kind="" Delimiter="$"><![CDATA[LaunchUriResult result = await Launcher.LaunchUriForResultsAsync(woodgroveUri, options, inputData);
 if (result.Status == LaunchUriStatus.Success &&
+    result.Result != null &&
     result.Result["Status"] != null &&
 	(result.Result["Status"] as string) == "Success")
 {
