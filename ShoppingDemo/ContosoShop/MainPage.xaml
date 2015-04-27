@@ -16,14 +16,14 @@
             </Grid.RowDefinitions>
             <TextBlock Text="Contoso Shop" FontSize="40" Foreground="Black" />
             <ScrollViewer Grid.Row="1">
-                <StackPanel Orientation="Vertical" >
+                <StackPanel Orientation="Vertical" Width="500">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBox Text="Windows Devices"/>
-                        <Button Grid.Column="1" Content="Search" Background="Black" Foreground="White" />
+                        <Button Grid.Column="1" Content="Search"/>
                     </Grid>
                     <Border BorderThickness="2" BorderBrush="DarkGray" Margin="0,20,0,0">
                         <Grid>
@@ -33,8 +33,8 @@
                             </Grid.RowDefinitions>
                             <Image Source="Assets/Products/4KMonitor.jpg" Height="200" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="4K Monitor [574.95]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyMonitor" Content="Buy" Click="BuyMonitor_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="4K Monitor $574.95" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyMonitor" Content="Buy" Click="BuyMonitor_Click" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -46,9 +46,9 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <Image Source="Assets/Products/laptop.jpg" Height="200" />
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="Laptop [$999.00]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyLaptop" Content="Buy" Click="BuyLaptop_Click" Background="Black" Foreground="White" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                                <TextBlock Text="Laptop $999.00" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyLaptop" Content="Buy" Click="BuyLaptop_Click" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -60,9 +60,9 @@
                                 <RowDefinition />
                             </Grid.RowDefinitions>
                             <Image Source="Assets/Products/phone.jpg" Height="200" />
-                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="Windows Phone [199.00]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyPhone" Content="Buy" Click="BuyPhone_Click" Background="Black" Foreground="White" />
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                                <TextBlock Text="Windows Phone $199.00" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyPhone" Content="Buy" Click="BuyPhone_Click" />
                             </StackPanel>
                         </Grid>
                     </Border>
@@ -75,14 +75,14 @@
                             </Grid.RowDefinitions>
                             <Image Source="Assets/Products/tablet.jpg" Height="200" />
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
-                                <TextBlock Text="Tablet [499.95]" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
-                                <Button x:Name="BuyTablet" Content="Buy" Click="BuyTablet_Click" Background="Black" Foreground="White" />
+                                <TextBlock Text="Tablet $499.95" FontSize="20" VerticalAlignment="Center" Foreground="Black"/>
+                                <Button x:Name="BuyTablet" Content="Buy" Click="BuyTablet_Click" />
                             </StackPanel>
                         </Grid>
                     </Border>
                 </StackPanel>
             </ScrollViewer>
-            <Button x:Name="button" Content="Order History" HorizontalAlignment="Left" Margin="901,10,0,0" VerticalAlignment="Top" Background="Black" Foreground="White" Width="134" Click="OrderHistory_Click"/>
+            <Button x:Name="button" Content="Order History" HorizontalAlignment="Left" Margin="901,10,0,0" VerticalAlignment="Top" Width="134" Click="OrderHistory_Click"/>
         </Grid>
     </Grid>
 </Page>
