@@ -30,7 +30,7 @@ namespace LaunchURISample
 
         private async void Launch_Click(object sender, RoutedEventArgs e)
         {            
-            await Launcher.LaunchUriAsync(new Uri("build2015:"));
+            await Launcher.LaunchUriAsync(new Uri("com.aruntalkstech.build2015:"));
         }
     }
 }

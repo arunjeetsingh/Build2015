@@ -41,7 +41,7 @@
       </uap:VisualElements>
       <Extensions>
         <uap:Extension Category="windows.protocol">
-          <uap:Protocol Name="build2015">           
+          <uap:Protocol Name="com.aruntalkstech.build2015">           
           </uap:Protocol>
         </uap:Extension>
       </Extensions>
