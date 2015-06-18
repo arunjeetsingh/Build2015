@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+  <Identity
+    Name="c9f06830-93ac-4f23-b30d-72c669c8ff5a"
+    Version="1.0.0.0"
+    Publisher="CN=arsingh" />
+
+  <mp:PhoneIdentity PhoneProductId="c9f06830-93ac-4f23-b30d-72c669c8ff5a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>JSAppServiceProvider</DisplayName>
+    <PublisherDisplayName>arsingh</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10069.0" MaxVersionTested="10.0.10069.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application
+      Id="App"
+      StartPage="default.html">
+
+      <uap:VisualElements
+        DisplayName="JSAppServiceProvider"
+        Description="JSAppServiceProvider"
+        BackgroundColor="#464646"
+        Square150x150Logo="images\Logo.png"
+        Square44x44Logo="images\SmallLogo.png">
+
+        <uap:SplashScreen Image="images\splashscreen.png" />
+
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.appService" StartPage="js\jscalc.js">
+          <uap:AppService Name="com.microsoft.jscalcservice" />
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+
+</Package>
